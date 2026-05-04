@@ -1,7 +1,7 @@
 # shema
 # JSON Schema (Transparent Runtime Model)
 
-This schema defines a **deterministic, fully transparent runtime system** for managing scripts, inputs, and execution flow — with no encryption, no compression, and no hidden layers.
+This schema defines a **deterministic, fully transparent runtime system** for managing scripts, inputs, and execution flow — with no encryption, no compression, and no hidden layers. 
 
 ---
 
