@@ -1,0 +1,111 @@
+{
+  "project": {
+    "name": "string",
+    "version": "string",
+    "description": "string"
+  },
+
+  "inputs": {
+    "static": [
+      {
+        "id": "config",
+        "type": "json",
+        "path": "./data/config.json",
+        "required": true
+      }
+    ],
+    "auto": [
+      {
+        "id": "datasets",
+        "watch_path": "./data",
+        "pattern": "*.json",
+        "merge_strategy": "deep_merge",
+        "trigger": "startup",
+        "recursive": true
+      }
+    ]
+  },
+
+  "scripts": [
+    {
+      "id": "main",
+      "name": "Main Script",
+      "path": "./src/main.js",
+      "type": "js",
+      "entry": true,
+      "dependencies": [],
+      "inputs": ["config"],
+      "content": "console.log('run');"
+    }
+  ],
+
+  "structure": {
+    "folders": [
+      {
+        "name": "src",
+        "path": "./src"
+      },
+      {
+        "name": "dist",
+        "path": "./dist"
+      }
+    ],
+    "files": [
+      {
+        "name": "config", "settings", "tool",
+        "path": "any",
+        "type": ".json", *.tsx, *.ts, *.js, *.md, *.mjs, "yml", 
+      }
+    ]
+  },
+
+   "prefix": [
+      {
+        "prefix": "string",
+        "prefix": "number",
+        "prefix": "simvol"
+      }
+    ]
+  },
+
+   "prefix": [
+      {
+        "suflix": "any"
+      }
+    ]
+  },
+
+  "execution": {
+    "entry_point": "main",
+    "load_order": ["main"],
+    "runtime": "node",
+
+    "input_resolution": "strict",
+
+    "nextExport": true,
+    "autoExport": true,
+    "isFallback": false,
+
+    "scriptLoader": [
+      {
+        "id": "core_loader",
+        "type": "sync",
+        "order": 1,
+        "scripts": ["main"]
+      }
+    ],
+
+    "autoCompletion": {
+      "enabled": true,
+      "mode": "strict_infer",
+      "fillStrategy": "defaults_first",
+      "rules": {
+        "missing_entry_point": "use_first_script",
+        "missing_dependencies": [],
+        "missing_inputs": "auto_bind_if_available",
+        "missing_runtime": "node",
+        "missing_load_order": "sequential_scripts"
+      },
+    }
+  }
+}
